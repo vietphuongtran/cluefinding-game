@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Clue finding</title>
+        <meta charset="UTF-8">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--        <script src="cluefinding.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="cluefinding.css" />
+    </head>
+    <body>
+    <div id="app" class="flexbox">
+        <div class="level">
+            <select v-on:change="chooseLevel($event)">
+                <option>---Choose your level---</option>
+                <option value="Hard">Hard</option>
+                <option value="superHard">Super Hard</option>
+            </select>
+        </div>
+<!--        <div class="Level 1">-->
+            <div class="button flexbox">
+                <div v-on:click="isHidden1 = !isHidden1">
+                    <div><img src="img/crimesceneButton.jpg" /></div>
+                    <div><button>Crime scene - 2nd floor</button></div>
+                </div>
+                <div v-on:click="isHidden2 = !isHidden2">
+                    <div><img src="img/rooftop-garden-header.jpg"/></div>
+                    <div><button>Top floor</button></div>
+                </div>
+                <div v-on:click="isHidden3 = !isHidden3">
+                    <div><img src="img/kitchen.jpg"/></div>
+                    <div><button>1st floor</button></div>
+                </div>
+                <div v-on:click="isHidden4 = !isHidden4">
+                    <div><img src="img/garage.jpg" /></div>
+                    <div><button>Garage</button></div>
+                </div>
+            </div>
+            <div class="hiddenClue">
+                <div v-if="isHidden1">
+                    <div><img src="img/crime-scene.png" /></div>
+                    <div>The victim was found dead around 10pm with what appears to be a suicide attempt</div>
+                </div>
+                <div v-if="isHidden2">
+                    <div><img src="img/garderner.jpg" /></div>
+                    <div>Garderner: "I am in here all day, caring for the plant"</div>
+                </div>
+                <div v-if="isHidden3">
+                    <div><img src="img/femalechef.jpg" /></div>
+                    <div>Kitchener: "I am at the kitchen"</div>
+                </div>
+                <div v-if="isHidden4">
+                    <div><img src="img/themechanic.jpg" /></div>
+                    <div>The Mechanic: "I am putting the car into the garage and fix it because it rained last night"</div>
+                </div>
+            </div>
+            <div>
+                <div>It is definitely not a sucide, but who is the killer?</div>
+                <select v-on:change="findAnswer($event)">
+                    <option>---Let's catch the killer---</option>
+                    <option value="Suicide">It's a suicide</option>
+                    <option value="The Garderner">The Garderner</option>
+                    <option value="The Chef">The Chef</option>
+                    <option value="The Mechanic">The Mechanic</option>
+                </select>
+                <p>{{explanation}}</p>
+            </div>
+        </div>
+<!--    </div>-->
+                <script>
+                    var app = new Vue({
+                        el: '#app',
+                        data: {
+                            isHidden1: false,
+                            isHidden2: false,
+                            isHidden3: false,
+                            isHidden4: false,
+                            explanation: ""
+                        },
+                        methods: {
+                            findAnswer: function findAnswer(event) {
+                                if (event.target.value === "The Garderner") {
+                                    this.explanation = "You are right! Who goes to the rooftop to water the plant on a rainy day?"
+                                }
+
+                                else if (event.target.value === "Suicide") {
+                                    this.explanation = "It could not be a suicide. The person is left-handed but the gun is on her right hand!"
+                                } else {
+                                    this.explanation = "Try again! Don't let the killer get away!"
+                                }
+
+                            }
+                        }
+                    })
+                </script>
+            <!--        <div>-->
+<!--            <button v-on:click="isHidden = !isHidden">Crime scene - 2nd floor</button>-->
+<!--            <button class="click">Top floor</button>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <button class="click">1st floor</button>-->
+<!--            <button class="click">Garage</button>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            Clue finds:-->
+<!--            <div v-if="!isHidden">-->
+<!--                <div><img src="img/crime-scene.png" /></div>-->
+<!--                <div>The victim was found dead around 10pm with what appears to be a suicide attempt</div>-->
+<!--            </div>-->
+<!--            <div class="clueFinds hidden">-->
+<!--                <div><img src="img/garderner.jpg" /></div>-->
+<!--                <div>Garderner: "I am in here all day, caring for the plant"</div>-->
+<!--            </div>-->
+<!--            <div class="clueFinds hidden">-->
+<!--                <div><img src="img/femalechef.jpg" /></div>-->
+<!--                <div>Kitchener: "I am at the kitchen"</div>-->
+<!--            </div>-->
+<!--            <div class="clueFinds hidden">-->
+<!--                <div><img src="img/themechanic.jpg" /></div>-->
+<!--                <div>The Mechanic: "I am putting the car into the garage and fix it because it rained last night"</div>-->
+<!--            </div>-->
+<!--            <form>-->
+<!--                <div>It is definitely not a sucide, but who is the killer?</div>-->
+<!--                <select>-->
+<!--                    <option value="">&#45;&#45;Please select one&#45;&#45;</option>-->
+<!--                    <option value="The Gardener">The gardener</option>-->
+<!--                    <option value="The Chief">The chief</option>-->
+<!--                    <option value="The mechanic">The mechanic</option>-->
+<!--                </select>-->
+<!--            </form>-->
+<!--        </div>-->
+    </body>
+</html>
