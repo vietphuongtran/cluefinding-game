@@ -22,7 +22,8 @@
             <div class="button flexbox">
 <!--            onclick event-->
 <!--            if the div isHidden make not hidden and vice versa
-             Code reference from: https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue
+             Code reference and modified from: https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue
+             accessed on 25 June 2020
 -->
 
                 <!--This could be in a loop-->
@@ -67,7 +68,10 @@
 <!--                Onchange event:
                     Look for the change in the dropdown
                     and present the reaction accordingly
-                    Code reference: https://codepen.io/giorgosk/pen/zdWrEY
+                    Code reference and modified from: https://codepen.io/giorgosk/pen/zdWrEY
+                    and https://vuejs.org/v2/guide/events.html
+                    $event let you access DOM event in an inline statement handler
+                    accessed on 25 June 2020
 -->
                 <select v-on:change="findAnswer($event)">
                     <option>---Let's catch the killer---</option>

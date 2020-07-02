@@ -8,7 +8,14 @@
 <body>
 
     <div id="app">
-        <button v-on:click="isHidden = true">Hide the text below</button>
+<!--        original state isHidden = false, meaning it was not hidden
+            when clicked is Hidden = true which mean it is hidden
+-->
+        <button v-on:click="isHidden = false">Hide the text below</button>
+<!--
+            Whenenver the state isHidden the onclick event will switch it to !isHidden
+            and vice versa
+-->
         <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
 
         <h1 v-if="isHidden">Hide me on click event!</h1>
@@ -22,6 +29,8 @@
     </div>
     <script>
         Vue.component('clueimg',{
+            //this append the src to the img
+            //what I want is append the img and button to a div
             template:
                 `<img
 			        src= src;
@@ -30,7 +39,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                isHidden: false,
+                isHidden: true,
                 clueimgs: [
                     {id:1,
                         src: "img/crime-scene.png"
