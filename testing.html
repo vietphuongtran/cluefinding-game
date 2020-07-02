@@ -11,13 +11,36 @@
         <button v-on:click="isHidden = true">Hide the text below</button>
         <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
 
-        <h1 v-if="!isHidden">Hide me on click event!</h1>
+        <h1 v-if="isHidden">Hide me on click event!</h1>
+        <div>
+            <clueimg
+                    v-for="clueimg in clueimgs"
+                    v-bind:src="clueimg.src"
+                    v-bind:key="clueimg.id">
+            </clueimg>
+        </div>
     </div>
     <script>
+        Vue.component('clueimg',{
+            template:
+                `<img
+			        src= src;
+		        />`
+        });
         var app = new Vue({
             el: '#app',
             data: {
-                isHidden: false
+                isHidden: false,
+                clueimgs: [
+                    {id:1,
+                        src: "img/crime-scene.png"
+                        // buttonText: "Crime scene"
+                    },
+                    {
+                        id:2,
+                        src: "img/femalechef.jpg"
+                    }
+                ]
             }
         })
     </script>

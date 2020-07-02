@@ -10,6 +10,7 @@
     <body>
     <div id="app" class="flexbox">
         <div class="level">
+        <!--TO DO: Choose level-->
             <select v-on:change="chooseLevel($event)">
                 <option>---Choose your level---</option>
                 <option value="Hard">Hard</option>
@@ -17,6 +18,7 @@
             </select>
         </div>
 <!--        <div class="Level 1">-->
+            <!--To do: pull all in a component-->
             <div class="button flexbox">
                 <div v-on:click="isHidden1 = !isHidden1">
                     <div><img src="img/crimesceneButton.jpg" /></div>
@@ -35,6 +37,7 @@
                     <div><button>Garage</button></div>
                 </div>
             </div>
+        <!--To do: pull all in a component-->
             <div class="hiddenClue">
                 <div v-if="isHidden1">
                     <div><img src="img/crime-scene.png" /></div>
@@ -64,9 +67,16 @@
                 </select>
                 <p>{{explanation}}</p>
             </div>
-        </div>
-<!--    </div>-->
-                <script>
+
+    </div>
+    <script>
+        // Vue.component('clue', {
+        //     props: ['src'],
+        //     template:
+        //         `<img
+        //          src= src
+        //         />`,
+        // });
                     var app = new Vue({
                         el: '#app',
                         data: {
@@ -74,7 +84,13 @@
                             isHidden2: false,
                             isHidden3: false,
                             isHidden4: false,
-                            explanation: ""
+                            explanation: "",
+                            clues: [
+                                {id:1,
+                                src: "img/crime-scene.png"
+                                // buttonText: "Crime scene"
+                                }
+                            ]
                         },
                         methods: {
                             findAnswer: function findAnswer(event) {
