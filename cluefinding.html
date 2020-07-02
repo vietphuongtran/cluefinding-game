@@ -20,6 +20,12 @@
 <!--        <div class="Level 1">-->
             <!--To do: pull all in a component-->
             <div class="button flexbox">
+<!--            onclick event-->
+<!--            if the div isHidden make not hidden and vice versa
+             Code reference from: https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue
+-->
+
+                <!--This could be in a loop-->
                 <div v-on:click="isHidden1 = !isHidden1">
                     <div><img src="img/crimesceneButton.jpg" /></div>
                     <div><button>Crime scene - 2nd floor</button></div>
@@ -57,7 +63,12 @@
                 </div>
             </div>
             <div>
-                <div>It is definitely not a sucide, but who is the killer?</div>
+                <div>Who is the killer?</div>
+<!--                Onchange event:
+                    Look for the change in the dropdown
+                    and present the reaction accordingly
+                    Code reference: https://codepen.io/giorgosk/pen/zdWrEY
+-->
                 <select v-on:change="findAnswer($event)">
                     <option>---Let's catch the killer---</option>
                     <option value="Suicide">It's a suicide</option>
