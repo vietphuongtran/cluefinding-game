@@ -8,23 +8,26 @@
         <link rel="stylesheet" type="text/css" href="cluefinding.css" />
     </head>
     <body>
-    <div id="app" class="flexbox">
-        <div class="level">
-        <!--TO DO: Choose level-->
-            <select v-on:change="chooseLevel($event)">
-                <option>---Choose your level---</option>
-                <option value="Hard">Hard</option>
-                <option value="superHard">Super Hard</option>
-            </select>
-        </div>
-<!--        <div class="Level 1">-->
+    <h1>Who is the killer?</h1>
+    <div class="page-wrapper">
+        <div id="app" class="flexbox">
+            <!--        <div class="level">-->
+            <!--        &lt;!&ndash;TO DO: Choose level&ndash;&gt;-->
+            <!--            <select v-on:change="chooseLevel($event)">-->
+            <!--                <option>-&#45;&#45;Choose your level-&#45;&#45;</option>-->
+            <!--                <option value="Hard">Hard</option>-->
+            <!--                <option value="superHard">Super Hard</option>-->
+            <!--            </select>-->
+            <!--        </div>-->
+            <!--        <div class="Level 1">-->
             <!--To do: pull all in a component-->
+
             <div class="button flexbox">
-<!--            onclick event-->
-<!--            if the div isHidden make not hidden and vice versa
-             Code reference and modified from: https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue
-             accessed on 25 June 2020
--->
+                <!--            onclick event-->
+                <!--            if the div isHidden make not hidden and vice versa
+                             Code reference and modified from: https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue
+                             accessed on 25 June 2020
+                -->
 
                 <!--This could be in a loop-->
                 <div v-on:click="isHidden1 = !isHidden1">
@@ -33,18 +36,18 @@
                 </div>
                 <div v-on:click="isHidden2 = !isHidden2">
                     <div><img src="img/rooftop-garden-header.jpg"/></div>
-                    <div><button>Top floor</button></div>
+                    <div><button>Rooftop Gardern</button></div>
                 </div>
                 <div v-on:click="isHidden3 = !isHidden3">
                     <div><img src="img/kitchen.jpg"/></div>
-                    <div><button>1st floor</button></div>
+                    <div><button>Kitchen</button></div>
                 </div>
                 <div v-on:click="isHidden4 = !isHidden4">
                     <div><img src="img/garage.jpg" /></div>
                     <div><button>Garage</button></div>
                 </div>
             </div>
-        <!--To do: pull all in a component-->
+            <!--To do: pull all in a component-->
             <div class="hiddenClue">
                 <div v-if="isHidden1">
                     <div><img src="img/crime-scene.png" /></div>
@@ -63,16 +66,16 @@
                     <div>The Mechanic: "I am putting the car into the garage and fix it because it rained last night"</div>
                 </div>
             </div>
-            <div>
+            <div class="chooseAnswer">
                 <div>Who is the killer?</div>
-<!--                Onchange event:
-                    Look for the change in the dropdown
-                    and present the reaction accordingly
-                    Code reference and modified from: https://codepen.io/giorgosk/pen/zdWrEY
-                    and https://vuejs.org/v2/guide/events.html
-                    $event let you access DOM event in an inline statement handler
-                    accessed on 25 June 2020
--->
+                <!--                Onchange event:
+                                    Look for the change in the dropdown
+                                    and present the reaction accordingly
+                                    Code reference and modified from: https://codepen.io/giorgosk/pen/zdWrEY
+                                    and https://vuejs.org/v2/guide/events.html
+                                    $event let you access DOM event in an inline statement handler
+                                    accessed on 25 June 2020
+                -->
                 <select v-on:change="findAnswer($event)">
                     <option>---Let's catch the killer---</option>
                     <option value="Suicide">It's a suicide</option>
@@ -83,7 +86,9 @@
                 <p>{{explanation}}</p>
             </div>
 
+        </div>
     </div>
+
     <script>
         // Vue.component('clue', {
         //     props: ['src'],
